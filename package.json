@@ -5,8 +5,8 @@
   "main": "code.js",
   "scripts": {
     "build:tsc": "tsc -p tsconfig.json",
-    "build": "npx webpack --config config/webpack.config.js",
-    "dev": "webpack --config config/webpack.config.js --progress --watch"
+    "build:plugin": "webpack --config config/webpack.config.js",
+    "dev:plugin": "NODE_ENV=development webpack --config config/webpack.config.js --progress --watch"
   },
   "author": "",
   "license": "",

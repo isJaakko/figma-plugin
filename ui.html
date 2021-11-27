@@ -6,6 +6,7 @@
   function listen(eventType, cb) {
     // 收到消息后调用 cb 处理
     window.onmessage = ({ data: { pluginMessage: event } }) => {
+      console.log(eventType, event);
       if (event.type === eventType) {
         const result = cb(event.data);
         const callbackData = {

@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = {
   mode: process.env.NODE_ENV === "development" ? "development" : "production",
-  entry: path.resolve(__dirname, "../src/code.ts"),
+  entry: path.resolve(__dirname, "../src/plugin/index.ts"),
   output: {
     filename: "code.js",
     path: path.resolve(__dirname, "../dist"),
