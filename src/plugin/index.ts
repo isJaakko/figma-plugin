@@ -1,14 +1,14 @@
-import { post } from "./post";
-import { listen } from "./listen";
+import { post } from './post';
+import { listen } from './listen';
 
 figma.showUI(__html__);
 
-listen("create-rectangles", (count = 1) => {
+listen('create-rectangles', (count = 1) => {
   const nodes: SceneNode[] = [];
   for (let i = 0; i < count; i++) {
     const rect = figma.createRectangle();
     rect.x = i * 150;
-    rect.fills = [{ type: "SOLID", color: { r: 1, g: 0.5, b: 0 } }];
+    rect.fills = [{ type: 'SOLID', color: { r: 1, g: 0.5, b: 0 } }];
     figma.currentPage.appendChild(rect);
     nodes.push(rect);
   }
@@ -18,8 +18,6 @@ listen("create-rectangles", (count = 1) => {
   return count;
 });
 
-figma.on("selectionchange", async () => {
-  console.log("send event from plugin");
-  const result = await post({ type: "eventFromPlugin", data: "test msg" });
-  console.log("received from ui:", result);
+figma.on('selectionchange', async () => {
+  await post({ type: 'eventFromPlugin', data: 'test msg' });
 });
